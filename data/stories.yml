@@ -1,0 +1,62 @@
+version: "3.1"
+
+stories:
+- story: Email story 
+  steps:
+  - intent: greet
+  - action: utter_askname
+  - intent: user_name
+  - slot_was_set:
+    - name: "YOURNAME"
+  - action: utter_askemail
+  - slot_was_set:
+    - email: 'abc@gmail.com'
+  - intent: email_id
+  - action: action_email
+
+- story: take_psat
+  steps:
+  - intent: testing_questions
+  - action: utter_take_PSAT
+  - slot_was_set:
+    - question_type: null
+
+
+
+- story: fin_aid_help
+  steps:
+  - intent: financial_aid
+  - action: utter_financial_help
+  - slot_was_set:
+    - question_type: null
+
+- story: interactive_story_1
+  steps:
+  - intent: testing_questions
+    entities:
+    - question: general
+    - test: SAT
+  - slot_was_set:
+    - question_type: general
+  - slot_was_set:
+    - test_type: SAT
+  - action: utter_take_PSAT
+  - intent: financial_aid
+    entities:
+    - question: general
+    - money: TASFA
+  - slot_was_set:
+    - money_type: TASFA
+  - action: utter_financial_help
+  - intent: testing_questions
+    entities:
+    - question: date
+  - slot_was_set:
+    - question_type: date
+  - action: utter_take_PSAT
+  - intent: financial_aid
+    entities:
+    - question: date
+    - money: TASFA
+  - action: utter_financial_help
+

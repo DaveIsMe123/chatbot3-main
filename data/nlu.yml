@@ -1,0 +1,953 @@
+version: "3.1"
+nlu:
+- intent: email_id  
+  examples: |
+    - [abc@gmail.com](email)
+    - [abc@yourdomain](email)
+    - @gmail.com
+    - [xyz@gmail.com](email)
+- intent: user_name
+  examples: |
+    - [YOURNAME](name)
+    - [RANDOM_PERSON_NAME](name)
+- intent: goodbye
+  examples: |
+    - cu
+    - good by
+    - cee you later
+    - good night
+    - bye
+    - goodbye
+    - have a nice day
+    - see you around
+    - bye bye
+    - see you later
+- intent: interests_activities
+  examples: |
+    - What activities should I do if I want to be a [farm labor contractor]{"entity": "interests", "value": "agriculture_food_and_natural_resources"}
+    - what extracurricualrs should I do if I want to be an [farmer]{"entity": "interests", "value": "agriculture_food_and_natural_resources"}
+    - If I want to be an [animal scientist]{"entity": "interests", "value": "agriculture_food_and_natural_resources"} what activities should I do
+    - To be a [animal breeder]{"entity": "interests", "value": "agriculture_food_and_natural_resources"} what extracurriculars would be helpful
+    - I want to be an [environmental engineer]{"entity": "interests", "value": "agriculture_food_and_natural_resources"} what acitivities should I do
+    - I want to be an [environmental scientist]{"entity": "interests", "value": "agriculture_food_and_natural_resources"} what extracurriculars should I do
+    - I am interested in becoming a [hazardous material removal worker]{"entity": "interests", "value": "agriculture_food_and_natural_resources"} what activities would be helpful
+    - what activities should I do if I am interested in becoming an [agricultural technician]{"entity": "interests", "value": "agriculture_food_and_natural_resources"}
+    - I am interested in becoming a [food scientist]{"entity": "interests", "value": "agriculture_food_and_natural_resources"} what extracurriculars should I do
+    - I would like to become a [forest and conservation worker]{"entity": "interests", "value": "agriculture_food_and_natural_resources"} what activities should I do
+    - I would like to be a [biological techinician]{"entity": "interests", "value": "agriculture_food_and_natural_resources"} what activities would you recommend
+    - If I would like to become a [soil and plant scientist]{"entity": "interests", "value": "agriculture_food_and_natural_resources"} what extracurriculars do you think think would be useful
+    - In order to be a [agricultural engineer]{"entity": "interests", "value": "agriculture_food_and_natural_resources"} what extracurriculars would be helpful
+    - To become an [architect]{"entity": "interests", "value": "architecture_and_construction"} what activities should I do
+    - what activities should I do to become a [civil engineer]{"entity": "interests", "value": "architecture_and_construction"}
+    - If I want to be an [interior designer]{"entity": "interests", "value": "architecture_and_construction"} what extracurriculars do you recommend
+    - To be a [surveyor]{"entity": "interests", "value": "architecture_and_construction"} what activities should I do
+    - I would like to become a [transportation engineer]{"entity": "interests", "value": "architecture_and_construction"} what extracurriculars should I do
+    - I am interested in becoming an [audio and video technician]{"entity": "interests", "value": "arts_audio_video_technology_and_communications"} what activities should I do
+    - I would like to become a [film editor]{"entity": "interests", "value": "arts_audio_video_technology_and_communications"} what extracurriculars should I do
+    - If I am interested in becoming a [video editor]{"entity": "interests", "value": "arts_audio_video_technology_and_communications"} what activities would be helpful
+    - To become a [photographer]{"entity": "interests", "value": "arts_audio_video_technology_and_communications"} what activities would you recommend me to do
+    - If I would like to become a [writer]{"entity": "interests", "value": "arts_audio_video_technology_and_communications"} what activities would be useful
+    - I am an interested in becoming an [author]{"entity": "interests", "value": "arts_audio_video_technology_and_communications"} wha extracurriculars should I do
+    - I would like to become a [director]{"entity": "interests", "value": "arts_audio_video_technology_and_communications"} what activities should I do
+    - what extracurriculars should I do if I want to become a [chief executive]{"entity": "interests", "value": "business_management_and_administration"}
+    - If I would like to become a [CEO]{"entity": "interests", "value": "business_management_and_administration"} what type of extracurriculars should I do
+    - What types of activities should I do if I want to become a [business executive]{"entity": "interests", "value": "business_management_and_administration"}
+    - I would like to become a [general manager]{"entity": "interests", "value": "business_management_and_administration"} what activities should I do
+    - In order to be a [investment fund manager]{"entity": "interests", "value": "business_management_and_administration"} what extracurriculars should I do
+    - I would like to become a [hedge fund manager]{"entity": "interests", "value": "business_management_and_administration"} what kinds if extracurriculars would you recommend
+    - I am interested in becoming a [teacher]{"entity": "interests", "value": "education_and_training"}
+    - I would like to become a [professor]{"entity": "interests", "value": "education_and_training"} what activities should I do
+    - To become a [guidance counselor]{"entity": "interests", "value": "human_services"} what extracurriculars do you think would be useful
+    - I am very interested in becoming a [translator]{"entity": "interests", "value": "education_and_training"} what activities do you think I should do
+    - I think I would like to become an [interpreter]{"entity": "interests", "value": "education_and_training"} are there any extracurriculars that you recommend
+    - I am thinking of becoming a [librarian]{"entity": "interests", "value": "education_and_training"} are there any activities you think would be helpful
+    - I want to be an [accountant]{"entity": "interests", "value": "finance"} do you recommend any activities to do
+    - I want to be a [finance](interests) major what activities should I do
+    - Do you have any suggestions for extracurriculars if I want to be a [financial and investment analyst]{"entity": "interests", "value": "finance"}
+    - Do you have any recommnedations for activities to do to become a [financial manager]{"entity": "interests", "value": "finance"}
+    - are there any recommendations for extracurriculars to do if I want to become an [insurance sales agent]{"entity": "interests", "value": "finance"}
+    - I want to be a [personal financial advisor]{"entity": "interests", "value": "finance"} are there any extracurriculars that you recommend
+    - I would like to become a [legislator]{"entity": "interests", "value": "government_and_public_administration"} what activities should I do
+    - In order to become an [urban planner]{"entity": "interests", "value": "government_and_public_administration"} what activities should I do
+    - In order to become an [regional planner]{"entity": "interests", "value": "government_and_public_administration"} what activities should I do
+    - I would like to become a [politician]{"entity": "interests", "value": "government_and_public_administration"} what activities should I do
+    - To become the [governor]{"entity": "interests", "value": "government_and_public_administration"} what extracurricular should I do
+    - I would like to become a [senator]{"entity": "interests", "value": "government_and_public_administration"} what activities should I do
+    - If I want to be a [congressman]{"entity": "interests", "value": "government_and_public_administration"} what extracurriculars should I do
+    - I would like to become a [construction inspector]{"entity": "interests", "value": "government_and_public_administration"} what activities should I do
+    - To become a [real estate appraiser]{"entity": "interests", "value": "government_and_public_administration"} what extracurricular should I do
+    - I would like to become a [doctor]{"entity": "interests", "value": "health_science"} what extracurriculars should I do
+    - If I want to be a [biomedical engineer]{"entity": "interests", "value": "health_science"} what extracurriculars should I do
+    - To become a [medical researcher]{"entity": "interests", "value": "health_science"} what extracurricular should I do
+    - I think I would like to become a [biomedical researcher]{"entity": "interests", "value": "health_science"} are there any extracurriculars that you recommend
+    - Do you have any suggestions for extracurriculars if I want to be a [epidemiologist]{"entity": "interests", "value": "health_science"}
+    - I am very interested in becoming a [medical laboratory technician]{"entity": "interests", "value": "health_science"} what activities do you think I should do
+    - I would like to become a [clinical laboratory techinician]{"entity": "interests", "value": "health_science"} what extracurriculars should I do
+    - Do you have any recommnedations for activities to do to become a [MRI technician]{"entity": "interests", "value": "health_science"}
+    - are there any recommendations for extracurriculars to do if I want to become an [Medical Resonance Imaging technologist]{"entity": "interests", "value": "health_science"}
+    - are there any recommendations for extracurriculars to do if I want to become an [Medical Resonance Imaging technician]{"entity": "interests", "value": "health_science"}
+    - Do you have any recommnedations for activities to do to become a [MRI technologist]{"entity": "interests", "value": "health_science"}
+    - I am very interested in becoming a [surgical assistant]{"entity": "interests", "value": "health_science"} what activities do you think I should do
+    - If I want to be a [veterinarian]{"entity": "interests", "value": "health_science"} what extracurriculars should I do
+    - I would like to become a [veterinary techinician]{"entity": "interests", "value": "health_science"} what extracurriculars should I do
+    - I am very interested in becoming a [cardiologist]{"entity": "interests", "value": "health_science"} what activities do you think I should do
+    - To become a [surgeon]{"entity": "interests", "value": "health_science"} what extracurricular should I do
+    - If I want to be a [gastroenterologist]{"entity": "interests", "value": "health_science"} what extracurriculars should I do
+    - Do you have any recommnedations for activities to do to become a [pediatrician]{"entity": "interests", "value": "health_science"}
+    - I would like to become a [dermatologist]{"entity": "interests", "value": "health_science"} what extracurriculars should I do
+    - I would like to major in [medicine]{"entity": "interests", "value": "health_science"} what extracurriculars should I do
+    - I would like to major in [premedicine]{"entity": "interests", "value": "health_science"} what extracurriculars should I do
+    - I would like to major in [pre-medicine]{"entity": "interests", "value": "health_science"} what extracurriculars should I do
+    - I would like to major in [premed]{"entity": "interests", "value": "health_science"} what extracurriculars should I do
+    - I am very interested in becoming a [physician assistant]{"entity": "interests", "value": "health_science"} what activities do you think I should do
+    - I would like to become a [PA]{"entity": "interests", "value": "health_science"} what extracurriculars should I do
+    - I am very interested in becoming a [pathologist]{"entity": "interests", "value": "health_science"} what activities do you think I should do
+    - I am very interested in majoring in [biology]{"entity": "interests", "value": "health_science"} what activities do you think I should do
+    - I am very interested in majoring in [biochemistry]{"entity": "interests", "value": "health_science"} what activities do you think I should do
+    - I would like to become a [opthalmologist]{"entity": "interests", "value": "health_science"} what extracurriculars should I do
+    - If I want to be a [radiologist]{"entity": "interests", "value": "health_science"} what extracurriculars should I do
+    - To become a [family doctor]{"entity": "interests", "value": "health_science"} what extracurricular should I do
+    - I would like to become a [anesthesiologist]{"entity": "interests", "value": "health_science"} what extracurriculars should I do
+    - I am very interested in becoming a [emergency care physician]{"entity": "interests", "value": "health_science"} what activities do you think I should do
+    - I would like to become a [neurologist]{"entity": "interests", "value": "health_science"} what extracurriculars should I do
+    - Do you have any recommnedations for activities to do to become a [nephralogist]{"entity": "interests", "value": "health_science"}
+    - I would like to get into [sports medicine]{"entity": "interests", "value": "health_science"} what extracurriculars should I do
+    - Do you have any recommnedations for activities to do to become a [urologist]{"entity": "interests", "value": "health_science"}
+    - I am very interested in becoming a [psychiatrist]{"entity": "interests", "value": "health_science"} what activities do you think I should do
+    - I am thinking of becoming a [nurse]{"entity": "interests", "value": "health_science"} are there any activities you think would be helpful
+    - I am thinking of majoring in [nursing]{"entity": "interests", "value": "health_science"} are there any activities you think would be helpful
+    - I am thinking of becoming a [pharmacist]{"entity": "interests", "value": "health_science"} are there any activities you think would be helpful
+    - To become a [psychologist]{"entity": "interests", "value": "human_services"} what extracurriculars do you think would be useful
+    - are there any recommendations you have for extracurriculars to do if I want to be a [clinical psychologist]{"entity": "interests", "value": "human_services"}
+    - are there any recommendations you have for extracurriculars to do if I want to major in [psychology]{"entity": "interests", "value": "human_services"}
+    - I want to be a [counseling psychologist]{"entity": "interests", "value": "human_services"} give me some activities to do
+    - I would like to become a [social worker]{"entity": "interests", "value": "human_services"} what extracurriculars should I do
+    - in order to become a [therapist]{"entity": "interests", "value": "human_services"} what extracurriculars should I do
+    - I really want to be a [counsleor]{"entity": "interests", "value": "human_services"} what activities do you think would be useful
+    - I am interested in becoming a [neuropsychologist]{"entity": "interests", "value": "human_services"} what extracurriculars would be helful
+    - if I want to be a [business intelligence analysts]{"entity": "interests", "value": "information_technology"} what activities do you recommend
+    - if I want to major in [business]{"entity": "interests", "value": "information_technology"} what activities do you recommend
+    - I would like to become a [computer systems engineer]{"entity": "interests", "value": "information_technology"} what extracurriculars should I do
+    - I want to be a [database architect]{"entity": "interests", "value": "information_technology"} what extracurriculars should I do
+    - To become a [software quality assurance analyst and tester]{"entity": "interests", "value": "information_technology"} what activities do you think I should do
+    - I am very interested in becoming a [video game designer]{"entity": "interests", "value": "information_technology"} what activities do you think would be helpful
+    - I am very interested in becoming a [videogame designer]{"entity": "interests", "value": "information_technology"} what activities do you think would be helpful
+    - to become a [web designer]{"entity": "interests", "value": "information_technology"} what extracurriculars do you think I should do
+    - I would like to become a [web and digital interface designer]{"entity": "interests", "value": "information_technology"} what activities do you think I should do
+    - I am extremely intrigued in becoming a [computer programmer]{"entity": "interests", "value": "information_technology"} what extracurriculars should I do
+    - I really want to become a [computer systems analyst]{"entity": "interests", "value": "information_technology"} what extracurriculars do you think would be helpful
+    - in order to become a [software developer]{"entity": "interests", "value": "information_technology"} what activities do you recommend to do
+    - in order to become a [software engineer]{"entity": "interests", "value": "information_technology"} what activities do you recommend to do
+    - if I want to major [computer science]{"entity": "interests", "value": "information_technology"} what activities should i do
+    - what extracurriculars do you recommend if I want to be a [web developer]{"entity": "interests", "value": "information_technology"}
+    - I am interested in becoming a [fire inspector]{"entity": "interests", "value": "law_public_safety_corrections_and_security"} what activities do you recommend
+    - I would like to become a [fire investigator]{"entity": "interests", "value": "law_public_safety_corrections_and_security"} what activities do you think I should do
+    - in order to become a [lawyer]{"entity": "interests", "value": "law_public_safety_corrections_and_security"} what extracurriculars should I do
+    - I am interested in becoming a [judge]{"entity": "interests", "value": "law_public_safety_corrections_and_security"} what activities should I do
+    - I would like to be a [law clerk]{"entity": "interests", "value": "law_public_safety_corrections_and_security"} what extracurriculars should I do
+    - I would like to major in [law]{"entity": "interests", "value": "law_public_safety_corrections_and_security"} what extracurriculars should I do
+    - I would like to major in [pre-law]{"entity": "interests", "value": "law_public_safety_corrections_and_security"} what extracurriculars should I do
+    - I would like to major in [prelaw]{"entity": "interests", "value": "law_public_safety_corrections_and_security"} what extracurriculars should I do
+    - to become a [judicial law clerk]{"entity": "interests", "value": "law_public_safety_corrections_and_security"} what extracurriculars would you recommend
+    - to be a [baliff]{"entity": "interests", "value": "law_public_safety_corrections_and_security"} what extracurriculars are useful
+    - I would like to become a [repairer]{"entity": "interests", "value": "manufacturing"} what extracurriculars do I do
+    - I would like to work with [machinery]{"entity": "interests", "value": "manufacturing"} what activities should I do
+    - in order to become a [wind turbine service technician]{"entity": "interests", "value": "manufacturing"} what activities do I do
+    - I am interested in becoming an [engineering technician] what extracurriculars would be helpful
+    - I am thinking of becoming an [engineering technologist]{"entity": "interests", "value": "manufacturing"} what activities do you recommend
+    - I think I want to be a [nuclear technician]{"entity": "interests", "value": "manufacturing"} what activities should I do
+    - I would like to be a [photonics technician]{"entity": "interests", "value": "manufacturing"} what extracurriculars do you think would be helpful
+    - I really want to be a [robotics technician]{"entity": "interests", "value": "manufacturing"} what extracurriculars do you think would be useful
+    - I want to be a [operator]{"entity": "interests", "value": "manufacturing"} what activities do you think I should do
+    - I want to work in [sales]{"entity": "interests", "value": "marketing"} what extracurriculars do I do
+    - I would like to be a [sales]{"entity": "interests", "value": "marketing"} what activities should I do
+    - in order to become a [public relations specialist]{"entity": "interests", "value": "marketing"} what extracurriculars do you recommend
+    - if I want to be a [advertising manager]{"entity": "interests", "value": "marketing"} what activities would be helpful
+    - to become a [promotions manager]{"entity": "interests", "value": "marketing"} what activities do I do
+    - to become a [advertising and promotions manager]{"entity": "interests", "value": "marketing"} what activities would be helpful
+    - I would like to become a [marketing manager]{"entity": "interests", "value": "marketing"} what extracurriculars do I do
+    - I am interested in becoming a [public relations manager]{"entity": "interests", "value": "marketing"} what activities do you recommend
+    - I want to be a [sales manager]{"entity": "interests", "value": "marketing"} what activities should I do
+    - I want to be a [market research analyst]{"entity": "interests", "value": "marketing"} what extracurriculars should I do
+    - to become a [marketing specialist]{"entity": "interests", "value": "marketing"} what activites would be helpful
+    - I really want to be a [real estate broker]{"entity": "interests", "value": "marketing"} what activities do you recommend
+    - if I want to become a [real estate agent]{"entity": "interests", "value": "marketing"} what activities would be helpful
+    - I want to become an [engineer]{"entity": "interests", "value": "stem"} what extracurriculars should I do
+    - I really want to be an [aerospace engineer]{"entity": "interests", "value": "stem"} what activities do you recommend to do
+    - I want to be a [chemical engineer]{"entity": "interests", "value": "stem"} what activities do I do
+    - If I want to be a [electrical engineer]{"entity": "interests", "value": "stem"} what extracurriculars should I do
+    - I would like to be a [mechanical engineer]{"entity": "interests", "value": "stem"} what activities should I do
+    - I am very interested in becoming an [astronomer]{"entity": "interests", "value": "stem"} what extracurriculars would be helpful
+    - if I want to be a [atmospheric scientist]{"entity": "interests", "value": "stem"} what activities should I do
+    - i really want to be a [space scientist]{"entity": "interests", "value": "stem"} what activities do you recommend me to do
+    - I want to be a [atmospheric and space scientist]{"entity": "interests", "value": "stem"} what activities should I do
+    - to be a [biochemist]{"entity": "interests", "value": "stem"} what activities should I do
+    - i would like to be a [biophysicist]{"entity": "interests", "value": "stem"} what extracurriculars do you recommend
+    - in order to become a [chemist]{"entity": "interests", "value": "stem"} what extracurriculars should I do
+    - i would really like to become a [conservation scientist]{"entity": "interests", "value": "stem"} what activities would be helpful
+    - in order to become an [anthropologist]{"entity": "interests", "value": "stem"} what activities do you recommend I do
+    - i really would like to be a [data scientist]{"entity": "interests", "value": "stem"} what extracurriculars do you recommend I do
+    - I want to be an [economist]{"entity": "interests", "value": "stem"} what extracurriculars should I do
+    - to be a [geneticist]{"entity": "interests", "value": "stem"} what activities should I do
+    - i would like to become a [scientist]{"entity": "interests", "value": "stem"} what extracurriculars do you recommend
+    - in order to be a [mathematician]{"entity": "interests", "value": "stem"} what activities do you think would be useful for me to do
+    - i am very interested in becoming a [microbiologist]{"entity": "interests", "value": "stem"} do you have any recommendations for activities to do
+    - i am very excited about [molecular biology]{"entity": "interests", "value": "stem"} what activities would you recommend that I do
+    - i believe i want to be a [molecular biologist]{"entity": "interests", "value": "stem"} what extracurriculars should I do
+    - I think i am interested in [cellular biology]{"entity": "interests", "value": "stem"} what activities do I do
+    - i really would like to be a [cellular biologist]{"entity": "interests", "value": "stem"} what extracurriculars do you recommend I do
+    - if I want to be a [physicist]{"entity": "interests", "value": "stem"} what helpful extracurrculars should I do
+    - i am very interested in becoming a [sociologist]{"entity": "interests", "value": "stem"} what activities do you think I should do
+    - i would like to become a [mechanic]{"entity": "interests", "value": "transportation_distribution_and_logistics"} what activities do you think I should do
+    - i would love to become a [pilot]{"entity": "interests", "value": "transportation_distribution_and_logistics"} what extracurriculars do you recommend I do
+    - to become a [logistician]{"entity": "interests", "value": "transportation_distribution_and_logistics"} what useful activities do you think I should do
+    - i think i want to be a [logistics analyst]{"entity": "interests", "value": "transportation_distribution_and_logistics"} what extracurriculars do you think would be helpful for me to do
+    - i am interested in becoming a [logistics engineer]{"entity": "interests", "value": "transportation_distribution_and_logistics"} what extracurriculars should I do
+    - i would like to be a [air traffic controller]{"entity": "interests", "value": "transportation_distribution_and_logistics"} what activities should I do
+    - i would like to be a [airfield operations specialist]{"entity": "interests", "value": "transportation_distribution_and_logistics"} what extracurriculars should I do
+    - what should I do if I want to major in [electrical](interests) engineering
+    - what do I do if I want to be an [engineer]{"entity": "interests", "value": "stem"}
+- intent: mood_unhappy
+  examples: |
+    - my day was horrible
+    - I am sad
+    - I don't feel very well
+    - I am disappointed
+    - super sad
+    - I'm so sad
+    - sad
+    - very sad
+    - unhappy
+    - not good
+    - not very good
+    - extremly sad
+    - so saad
+    - so sad
+    - I'm down. 
+    - I'm depressed. 
+- intent: bot_challenge
+  examples: |
+    - are you a bot?
+    - are you a human?
+    - am I talking to a bot?
+    - am I talking to a human?
+- intent: testing_questions
+  examples: |
+    - [should I take]{"entity": "question", "value": "timeframe"} the [PSAT](test)
+    - [when should I take]{"entity": "question", "value": "timeframe"} the [PSAT](test)
+    - [when should take]{"entity": "question", "value": "timeframe"} the [PSAT](test) if I am a freshman
+    - if I am a freshman, [should I take]{"entity": "question", "value": "timeframe"} the [PSAT](test)
+    - Is it recommended [to take]{"entity": "question", "value": "timeframe"} the [PSAT](test)
+    - [should I take]{"entity": "question", "value": "timeframe"} the [PSAT](test) if I am a sophomore
+    - [when is it best to take]{"entity": "question", "value": "timeframe"} the PSAT
+    - if I am a sophomore, [should I take]{"entity": "question", "value": "timeframe"} the [PSAT](test)
+    - [should I take]{"entity": "question", "value": "timeframe"} the [PSAT](test) if I am a junior
+    - if I am a junior,  [should I take]{"entity": "question", "value": "timeframe"} the [PSAT](test)
+    - what [date](question) is the [PSAT](test)
+    - which [date](question) is the [PSAT](test)
+    - [when is]{"entity": "question", "value": "date"} the [PSAT](test)
+    - [when]{"entity": "question", "value": "date"} will the [PSAT](test) be
+    - [where]{"entity": "question", "value": "location"} is the [PSAT](test)
+    - [where]{"entity": "question", "value": "location"} will the [PSAT](test) be
+    - Is the [PSAT](test) [at school]{"entity": "question", "value": "location"}
+    - [where]{"entity": "question", "value": "location"} is the [PSAT](test) [held]{"entity": "question", "value": "location"}
+    - how do I [study](question) for the [PSAT](test)
+    - how do I [prepare]{"entity": "question", "value": "study"} for the [PSAT](test)
+    - how do I [review]{"entity": "question", "value": "study"} for the [PSAT](test)
+    - what do I [bring](question) to the [PSAT](test)
+    - what [supplies]{"entity": "question", "value": "bring"} do I [bring](question) to the [PSAT](test)
+    - what [should I take to]{"entity": "question", "value": "bring"} the [PSAT](test)
+    - what [do I take to]{"entity": "question", "value": "bring"} the [PSAT](test)
+    - [Do I take]{"entity": "question", "value": "timeframe"} the [PSAT](test)
+    - [should I take]{"entity": "question", "value": "timeframe"} the [SAT or ACT](test)
+    - [when should I take]{"entity": "question", "value": "timeframe"} the [SAT](test)
+    - [when should I take]{"entity": "question", "value": "timeframe"} the [SAT or ACT](test)
+    - [should I take]{"entity": "question", "value": "timeframe"} the [ACT](test)
+    - [how many times]{"entity": "question", "value": "timeframe"} do you recommend I take the [SAT or ACT](test)
+    - [how many times]{"entity": "question", "value": "timeframe"} do you recommend I take the [SAT](test)
+    - [how many times]{"entity": "question", "value": "timeframe"} do you recommend I take the [ACT](test)
+    - what is the [maximum amount of times]{"entity": "question", "value": "timeframe"} you recommend I take the [SAT or ACT](test)
+    - what is the [maximum amount of times]{"entity": "question", "value": "timeframe"} you recommend I take the [SAT](test)
+    - what is the [maximum amount of times]{"entity": "question", "value": "timeframe"} you recommend I take the  [ACT](test)
+    - How do I [prepare]{"entity": "question", "value": "study"} for the [SAT or ACT](test)
+    - How do I [prepare]{"entity": "question", "value": "study"} for the [SAT](test)
+    - How do I [prepare]{"entity": "question", "value": "study"} for the [ACT](test)
+    - How do I [study](question) for the [SAT or ACT](test)
+    - How do I [study](question) for the [SAT](test)
+    - How do I [study](question) for the [ACT](test)
+    - Is the [SAT or ACT](test) exam [held]{"entity": "question", "value": "location"} [at school]{"entity": "question", "value": "location"} or in another [location](question)
+    - Is the [SAT](test) exam [held]{"entity": "question", "value": "location"} [at school]{"entity": "question", "value": "location"} or in another [location](question)
+    - Is the [ACT](test) exam [held]{"entity": "question", "value": "location"} [at school]{"entity": "question", "value": "location"} or in another [location](question)
+    - [Where] {"entity": "question", "value":"location"}  is the [SAT](test)
+    - [Where] {"entity": "question", "value":"location"} is the [ACT](test)
+    - [Where] {"entity": "question", "value":"location"}  is the [SAT or ACT](test)
+    - [when is]{"entity": "question", "value": "date"} the [SAT](test)
+    - [when is]{"entity": "question", "value": "date"} the [ACT](test)
+    - [when is]{"entity": "question", "value": "date"} the [SAT or ACT](test)
+    - [when]{"entity": "question", "value": "date"} will the [SAT](test)
+    - [when]{"entity": "question", "value": "date"} will the [ACT](test)
+    - [when]{"entity": "question", "value": "date"} will the [SAT or ACT](test)
+    - what [date](question) is the [SAT](test)
+    - what [date](question) is the [ACT](test)
+    - what [date](question) is the [SAT or ACT](test)
+    - [should I take]{"entity": "question", "value": "timeframe"} the [ACT or SAT]{"entity": "test", "value": "SAT or ACT"}
+    - what [date](question) is the [act or sat]{"entity": "test", "value": "SAT or ACT"}
+    - [when]{"entity": "question", "value": "date"} will the [act and sat]{"entity": "test", "value": "SAT or ACT"}
+    - [when is]{"entity": "question", "value": "date"} the [ACT and SAT]{"entity": "test", "value": "SAT or ACT"}
+    - [Where] {"entity": "question", "value":"location"}  is the [SAT and ACT]{"entity": "test", "value": "SAT or ACT"}
+    - Is the [act or sat]{"entity": "test", "value": "SAT or ACT"} exam [held]{"entity": "question", "value": "location"} [at school]{"entity": "question", "value": "location"} or in another [location](question)
+    - what [do I bring to the testing center]{"entity": "question", "value": "bring"}
+    - what [should I take to the testing center]{"entity": "question", "value": "bring"}
+    - what [do I take to the testing center]{"entity": "question", "value": "bring"}
+    - [should I take]{"entity": "question", "value": "timeframe"} the [ACT or the SAT]{"entity": "test", "value": "SAT or ACT"}
+    - [should I take]{"entity": "question", "value": "timeframe"} the [SAT or the act]{"entity": "test", "value": "SAT or ACT"}
+    - Do I [have to]{"entity": "question", "value": "required"} take the [PSAT](test)
+    - Do I [have to]{"entity": "question", "value": "required"} take the [SAT](test)
+    - Do I [have to]{"entity": "question", "value": "required"} take the [ACT](test)
+    - Do I [have to]{"entity": "question", "value": "required"} take the [SAT or ACT](test)
+    - How do I [improve]{"entity": "question", "value": "study"} my score
+    - how [often does]{"entity": "question", "value": "location"} the [SAT](test) take place
+    - how [often is]{"entity": "question", "value": "location"} the [SAT](test)
+    - how [often does]{"entity": "question", "value": "location"} the [ACT](test) take place
+    - how [often is]{"entity": "question", "value": "location"} the [ACT](test)
+    - how [often does] the {"entity": "question", "value":"location"} the [SAT or ACT](test) take place
+    - how [often is]{"entity": "question", "value": "location"} the [SAT or ACT](test)
+    - [how many times should I take]{"entity": "question", "value": "timeframe"} the [SAT](test)
+    - [how many times should I take]{"entity": "question", "value": "timeframe"} the [PSAT](test)
+    - [How many times should i take]{"entity": "question", "value": "timeframe"} the [ACT](test)
+    - [how many times should I take]{"entity": "question", "value": "timeframe"} the [SAT or ACT](test)
+    - how [often is]{"entity": "question", "value": "location"} the [SAT](test) available
+    - how [often is]{"entity": "question", "value": "location"} the [ACT](test) offered
+    - how [often is]{"entity": "question", "value": "location"} the [SAT or ACT](test) given
+    - how [often should I take]{"entity": "question", "value": "timeframe"} the [SAT](test)
+    - how [often should I take]{"entity": "question", "value": "timeframe"} the ACT{"entity": "test", "value":"ACT"}
+    - how [often should I take]{"entity": "question", "value": "timeframe"} the [SAT or ACT](test)
+    - [what is]{"entity": "question", "value": "general"} the [NMSQT](question)
+    - [what is]{"entity": "question", "value": "general"} the [National Merit Scholar Qualifying Test]{"entity": "question", "value": "NMSQT"}
+    - [what is]{"entity": "question", "value": "general"} the [national merit scholar qualifying test]{"entity": "question", "value": "NMSQT"}
+    - [when is it]{"entity": "question", "value": "date"} that the [SAT](test) take place
+    - [what is]{"entity": "question", "value": "general"} the [SAT](test)
+    - [when is it]{"entity": "question", "value": "date"}
+- intent: summer_activities
+  examples: |
+    - What activities should I do in the summer if I want to be a [farm labor contractor]{"entity": "interests", "value": "agriculture_food_and_natural_resources"}
+    - what extracurricualrs should I do in the summer if I want to be a [farmer]{"entity": "interests", "value": "agriculture_food_and_natural_resources"}
+    - If I want to be an [animal scientist]{"entity": "interests", "value": "agriculture_food_and_natural_resources"} what summer activities should I do
+    - To be a [animal breeder]{"entity": "interests", "value": "agriculture_food_and_natural_resources"} what summer extracurriculars would be helpful
+    - I want to be an [environmental engineer]{"entity": "interests", "value": "agriculture_food_and_natural_resources"} what summer things should I do
+    - I want to be an [environmental scientist]{"entity": "interests", "value": "agriculture_food_and_natural_resources"} what summer programs should I do 
+    - I am interested in becoming a [hazardous material removal worker]{"entity": "interests", "value": "agriculture_food_and_natural_resources"} what activities would be helpful
+    - what activities should I do if I am interested in becoming an [agricultural technician]{"entity": "interests", "value": "agriculture_food_and_natural_resources"}
+    - I am interested in becoming a [food scientist]{"entity": "interests", "value": "agriculture_food_and_natural_resources"} what extracurriculars should I do 
+    - I would like to become a [forest and conservation worker]{"entity": "interests", "value": "agriculture_food_and_natural_resources"} what activities should I do
+    - I would like to be a [biological techinician]{"entity": "interests", "value": "agriculture_food_and_natural_resources"} what activities would you recommend
+    - If I would like to become a [soil and plant scientist]{"entity": "interests", "value": "agriculture_food_and_natural_resources"} what extracurriculars do you think think would be useful
+    - In order to be a [agricultural engineer]{"entity": "interests", "value": "agriculture_food_and_natural_resources"} what extracurriculars would be helpful
+    - To become an [architect]{"entity": "interests", "value": "architecture_and_construction"} what activities should I do
+    - what activities should I do to become a [civil engineer]{"entity": "interests", "value": "architecture_and_construction"}
+    - If I want to be an [interior designer]{"entity": "interests", "value": "architecture_and_construction"} what extracurriculars do you recommend
+    - To be a [surveyor]{"entity": "interests", "value": "architecture_and_construction"} what activities should I do 
+    - I would like to become a [transportation engineer]{"entity": "interests", "value": "architecture_and_construction"} what extracurriculars should I do
+    - I am interested in becoming an [audio and video technician]{"entity": "interests", "value": "arts_audio_video_technology_and_communications"} what activities should I do
+    - I would like to become a [film editor]{"entity": "interests", "value": "arts_audio_video_technology_and_communications"} what extracurriculars should I do
+    - If I am interested in becoming a [video editor]{"entity": "interests", "value": "arts_audio_video_technology_and_communications"} what activities would be helpful
+    - To become a [photographer]{"entity": "interests", "value": "arts_audio_video_technology_and_communications"} what activities would you recommend me to do
+    - If I would like to become a [writer]{"entity": "interests", "value": "arts_audio_video_technology_and_communications"} what activities would be useful
+    - I am an interested in becoming an [author]{"entity": "interests", "value": "arts_audio_video_technology_and_communications"} wha extracurriculars should I do
+    - I would like to become a [director]{"entity": "interests", "value": "arts_audio_video_technology_and_communications"} what activities should I do 
+    - what extracurriculars should I do if I want to become a [chief executive]{"entity": "interests", "value": "business_management_and_administration"}
+    - If I would like to become a [CEO]{"entity": "interests", "value": "business_management_and_administration"} what type of extracurriculars should I do 
+    - What types of activities should I do if I want to become a [business executive]{"entity": "interests", "value": "business_management_and_administration"}
+    - I would like to become a [general manager]{"entity": "interests", "value": "business_management_and_administration"} what activities should I do
+    - In order to be a [investment fund manager]{"entity": "interests", "value": "business_management_and_administration"} what extracurriculars should I do 
+    - I would like to become a [hedge fund manager]{"entity": "interests", "value": "business_management_and_administration"} what kinds if extracurriculars would you recommend
+    - I am interested in becoming a [teacher]{"entity": "interests", "value": "education_and_training"} 
+    - I would like to become a [professor]{"entity": "interests", "value": "education_and_training"} what activities should I do 
+    - To become a [guidance counselor]{"entity": "interests", "value": "human_services"} what extracurriculars do you think would be useful
+    - I am very interested in becoming a [translator]{"entity": "interests", "value": "education_and_training"} what activities do you think I should do
+    - I think I would like to become an [interpreter]{"entity": "interests", "value": "education_and_training"} are there any extracurriculars that you recommend
+    - I am thinking of becoming a [librarian]{"entity": "interests", "value": "education_and_training"} are there any activities you think would be helpful
+    - I want to be an [accountant]{"entity": "interests", "value": "finance"} do you recommend any activities to do 
+    - I want to be a [finance]{"entity": "interests", "value": "finance"} major what activities should I do 
+    - Do you have any suggestions for extracurriculars if I want to be a [financial and investment analyst]{"entity": "interests", "value": "finance"}
+    - Do you have any recommnedations for activities to do to become a [financial manager]{"entity": "interests", "value": "finance"}
+    - are there any recommendations for extracurriculars to do if I want to become an [insurance sales agent]{"entity": "interests", "value": "finance"}
+    - I want to be a [personal financial advisor]{"entity": "interests", "value": "finance"} are there any extracurriculars that you recommend
+    - I would like to become a [legislator]{"entity": "interests", "value": "government_and_public_administration"} what activities should I do 
+    - In order to become an [urban planner]{"entity": "interests", "value": "government_and_public_administration"} what activities should I do
+    - In order to become an [regional planner]{"entity": "interests", "value": "government_and_public_administration"} what activities should I do  
+    - I would like to become a [politician]{"entity": "interests", "value": "government_and_public_administration"} what activities should I do 
+    - To become the [governor]{"entity": "interests", "value": "government_and_public_administration"} what extracurricular should I do 
+    - I would like to become a [senator]{"entity": "interests", "value": "government_and_public_administration"} what activities should I do
+    - If I want to be a [congressman]{"entity": "interests", "value": "government_and_public_administration"} what extracurriculars should I do  
+    - I would like to become a [construction inspector]{"entity": "interests", "value": "government_and_public_administration"} what activities should I do 
+    - To become a [real estate appraiser]{"entity": "interests", "value": "government_and_public_administration"} what extracurricular should I do 
+    - I would like to become a [doctor]{"entity": "interests", "value": "health_science"} what extracurriculars should I do 
+    - If I want to be a [biomedical engineer]{"entity": "interests", "value": "health_science"} what extracurriculars should I do 
+    - To become a [medical researcher]{"entity": "interests", "value": "health_science"} what extracurricular should I do 
+    - I think I would like to become a [biomedical researcher]{"entity": "interests", "value": "health_science"} are there any extracurriculars that you recommend
+    - Do you have any suggestions for extracurriculars if I want to be a [epidemiologist]{"entity": "interests", "value": "health_science"}
+    - I am very interested in becoming a [medical laboratory technician]{"entity": "interests", "value": "health_science"} what activities do you think I should do
+    - I would like to become a [clinical laboratory techinician]{"entity": "interests", "value": "health_science"} what extracurriculars should I do
+    - Do you have any recommnedations for activities to do to become a [MRI technician]{"entity": "interests", "value": "health_science"}
+    - are there any recommendations for extracurriculars to do if I want to become an [Medical Resonance Imaging technologist]{"entity": "interests", "value": "health_science"}
+    - are there any recommendations for extracurriculars to do if I want to become an [Medical Resonance Imaging technician]{"entity": "interests", "value": "health_science"}
+    - Do you have any recommnedations for activities to do to become a [MRI technologist]{"entity": "interests", "value": "health_science"}
+    - I am very interested in becoming a [surgical assistant]{"entity": "interests", "value": "health_science"} what activities do you think I should do
+    - If I want to be a [veterinarian]{"entity": "interests", "value": "health_science"} what extracurriculars should I do 
+    - I would like to become a [veterinary techinician]{"entity": "interests", "value": "health_science"} what extracurriculars should I do
+    - I am very interested in becoming a [cardiologist]{"entity": "interests", "value": "health_science"} what activities do you think I should do
+    - To become a [surgeon]{"entity": "interests", "value": "health_science"} what extracurricular should I do
+    - If I want to be a [gastroenterologist]{"entity": "interests", "value": "health_science"} what extracurriculars should I do 
+    - Do you have any recommnedations for activities to do to become a [pediatrician]{"entity": "interests", "value": "health_science"}
+    - I would like to become a [dermatologist]{"entity": "interests", "value": "health_science"} what extracurriculars should I do
+    - I would like to major in [medicine]{"entity": "interests", "value": "health_science"} what extracurriculars should I do
+    - I would like to major in [premedicine]{"entity": "interests", "value": "health_science"} what extracurriculars should I do
+    - I would like to major in [pre-medicine]{"entity": "interests", "value": "health_science"} what extracurriculars should I do
+    - I would like to major in [premed]{"entity": "interests", "value": "health_science"} what extracurriculars should I do
+    - I am very interested in becoming a [physician assistant]{"entity": "interests", "value": "health_science"} what activities do you think I should do
+    - I would like to become a [PA]{"entity": "interests", "value": "health_science"} what extracurriculars should I do
+    - I am very interested in becoming a [pathologist]{"entity": "interests", "value": "health_science"} what activities do you think I should do
+    - I am very interested in majoring in [biology]{"entity": "interests", "value": "health_science"} what activities do you think I should do
+    - I am very interested in majoring in [biochemistry]{"entity": "interests", "value": "health_science"} what activities do you think I should do
+    - I would like to become a [opthalmologist]{"entity": "interests", "value": "health_science"} what extracurriculars should I do
+    - If I want to be a [radiologist]{"entity": "interests", "value": "health_science"} what extracurriculars should I do 
+    - To become a [family doctor]{"entity": "interests", "value": "health_science"} what extracurricular should I do
+    - I would like to become a [anesthesiologist]{"entity": "interests", "value": "health_science"} what extracurriculars should I do
+    - I am very interested in becoming a [emergency care physician]{"entity": "interests", "value": "health_science"} what activities do you think I should do
+    - I would like to become a [neurologist]{"entity": "interests", "value": "health_science"} what extracurriculars should I do     
+    - Do you have any recommnedations for activities to do to become a [nephralogist]{"entity": "interests", "value": "health_science"}
+    - I would like to get into [sports medicine]{"entity": "interests", "value": "health_science"} what extracurriculars should I do  
+    - Do you have any recommnedations for activities to do to become a [urologist]{"entity": "interests", "value": "health_science"}
+    - I am very interested in becoming a [psychiatrist]{"entity": "interests", "value": "health_science"} what activities do you think I should do
+    - I am thinking of becoming a [nurse]{"entity": "interests", "value": "health_science"} are there any activities you think would be helpful
+    - I am thinking of majoring in [nursing]{"entity": "interests", "value": "health_science"} are there any activities you think would be helpful
+    - I am thinking of becoming a [pharmacist]{"entity": "interests", "value": "health_science"} are there any activities you think would be helpful
+    - To become a [psychologist]{"entity": "interests", "value": "human_services"} what extracurriculars do you think would be useful
+    - are there any recommendations you have for extracurriculars to do if I want to be a [clinical psychologist]{"entity": "interests", "value": "human_services"}
+    - are there any recommendations you have for extracurriculars to do if I want to major in [psychology]{"entity": "interests", "value": "human_services"}
+    - I want to be a [counseling psychologist]{"entity": "interests", "value": "human_services"} give me some activities to do 
+    - I would like to become a [social worker]{"entity": "interests", "value": "human_services"} what extracurriculars should I do 
+    - in order to become a [therapist]{"entity": "interests", "value": "human_services"} what extracurriculars should I do 
+    - I really want to be a [counsleor]{"entity": "interests", "value": "human_services"} what activities do you think would be useful
+    - I am interested in becoming a [neuropsychologist]{"entity": "interests", "value": "human_services"} what extracurriculars would be helful
+    - if I want to be a [business intelligence analysts]{"entity": "interests", "value": "information_technology"} what activities do you recommend
+    - if I want to major in [business]{"entity": "interests", "value": "information_technology"} what activities do you recommend
+    - I would like to become a [computer systems engineer]{"entity": "interests", "value": "information_technology"} what extracurriculars should I do 
+    - I want to be a [database architect]{"entity": "interests", "value": "information_technology"} what extracurriculars should I do 
+    - To become a [software quality assurance analyst and tester]{"entity": "interests", "value": "information_technology"} what activities do you think I should do
+    - I am very interested in becoming a [video game designer]{"entity": "interests", "value": "information_technology"} what activities do you think would be helpful
+    - I am very interested in becoming a [videogame designer]{"entity": "interests", "value": "information_technology"} what activities do you think would be helpful
+    - to become a [web designer]{"entity": "interests", "value": "information_technology"} what extracurriculars do you think I should do 
+    - I would like to become a [web and digital interface designer]{"entity": "interests", "value": "information_technology"} what activities do you think I should do 
+    - I am extremely intrigued in becoming a [computer programmer]{"entity": "interests", "value": "information_technology"} what extracurriculars should I do
+    - I want to be [computer programmer]{"entity": "interests", "value": "information_technology"}
+    - I really want to become a [computer systems analyst]{"entity": "interests", "value": "information_technology"} what extracurriculars do you think would be helpful
+    - in order to become a [software developer]{"entity": "interests", "value": "information_technology"} what activities do you recommend to do 
+    - in order to become a [software engineer]{"entity": "interests", "value": "information_technology"} what activities do you recommend to do 
+    - if I want to major [computer science]{"entity": "interests", "value": "information_technology"} what activities should i do
+    - what extracurriculars do you recommend if I want to be a [web developer]{"entity": "interests", "value": "information_technology"}
+    - I am interested in becoming a [fire inspector]{"entity": "interests", "value": "law_public_safety_corrections_and_security"} what activities do you recommend
+    - I would like to become a [fire investigator]{"entity": "interests", "value": "law_public_safety_corrections_and_security"} what activities do you think I should do
+    - in order to become a [lawyer]{"entity": "interests", "value": "law_public_safety_corrections_and_security"} what extracurriculars should I do
+    - I am interested in becoming a [judge]{"entity": "interests", "value": "law_public_safety_corrections_and_security"} what activities should I do 
+    - I would like to be a [law clerk]{"entity": "interests", "value": "law_public_safety_corrections_and_security"} what extracurriculars should I do 
+    - I would like to major in [law]{"entity": "interests", "value": "law_public_safety_corrections_and_security"} what extracurriculars should I do 
+    - I would like to major in [pre-law]{"entity": "interests", "value": "law_public_safety_corrections_and_security"} what extracurriculars should I do 
+    - I would like to major in [prelaw]{"entity": "interests", "value": "law_public_safety_corrections_and_security"} what extracurriculars should I do 
+    - to become a [judicial law clerk]{"entity": "interests", "value": "law_public_safety_corrections_and_security"} what extracurriculars would you recommend
+    - to be a [baliff]{"entity": "interests", "value": "law_public_safety_corrections_and_security"} what extracurriculars are useful
+    - I would like to become a [repairer]{"entity": "interests", "value": "manufacturing"} what extracurriculars do I do
+    - I would like to work with [machinery]{"entity": "interests", "value": "manufacturing"} what activities should I do 
+    - in order to become a [wind turbine service technician]{"entity": "interests", "value": "manufacturing"} what activities do I do 
+    - I am interested in becoming an [engineering technician] what extracurriculars would be helpful
+    - I am thinking of becoming an [engineering technologist]{"entity": "interests", "value": "manufacturing"} what activities do you recommend
+    - I think I want to be a [nuclear technician]{"entity": "interests", "value": "manufacturing"} what activities should I do 
+    - I would like to be a [photonics technician]{"entity": "interests", "value": "manufacturing"} what extracurriculars do you think would be helpful
+    - I really want to be a [robotics technician]{"entity": "interests", "value": "manufacturing"} what extracurriculars do you think would be useful
+    - I want to be a [operator]{"entity": "interests", "value": "manufacturing"} what activities do you think I should do 
+    - I want to work in [sales]{"entity": "interests", "value": "marketing"} what extracurriculars do I do
+    - I would like to be a [sales]{"entity": "interests", "value": "marketing"} what activities should I do 
+    - in order to become a [public relations specialist]{"entity": "interests", "value": "marketing"} what extracurriculars do you recommend
+    - if I want to be a [advertising manager]{"entity": "interests", "value": "marketing"} what activities would be helpful
+    - to become a [promotions manager]{"entity": "interests", "value": "marketing"} what activities do I do 
+    - to become a [advertising and promotions manager]{"entity": "interests", "value": "marketing"} what activities would be helpful
+    - I would like to become a [marketing manager]{"entity": "interests", "value": "marketing"} what extracurriculars do I do 
+    - I am interested in becoming a [public relations manager]{"entity": "interests", "value": "marketing"} what activities do you recommend
+    - I want to be a [sales manager]{"entity": "interests", "value": "marketing"} what activities should I do
+    - I want to be a [market research analyst]{"entity": "interests", "value": "marketing"} what extracurriculars should I do 
+    - to become a [marketing specialist]{"entity": "interests", "value": "marketing"} what activites would be helpful
+    - I really want to be a [real estate broker]{"entity": "interests", "value": "marketing"} what activities do you recommend
+    - if I want to become a [real estate agent]{"entity": "interests", "value": "marketing"} what activities would be helpful
+    - I want to become an [engineer]{"entity": "interests", "value": "stem"} what extracurriculars should I do 
+    - I really want to be an [aerospace engineer]{"entity": "interests", "value": "stem"} what activities do you recommend to do 
+    - I want to be a [chemical engineer]{"entity": "interests", "value": "stem"} what activities do I do 
+    - If I want to be a [electrical engineer]{"entity": "interests", "value": "stem"} what extracurriculars should I do
+    - I would like to be a [mechanical engineer]{"entity": "interests", "value": "stem"} what activities should I do 
+    - I am very interested in becoming an [astronomer]{"entity": "interests", "value": "stem"} what extracurriculars would be helpful
+    - if I want to be a [atmospheric scientist]{"entity": "interests", "value": "stem"} what activities should I do
+    - i really want to be a [space scientist]{"entity": "interests", "value": "stem"} what activities do you recommend me to do 
+    - I want to be a [atmospheric and space scientist]{"entity": "interests", "value": "stem"} what activities should I do 
+    - to be a [biochemist]{"entity": "interests", "value": "stem"} what activities should I do
+    - i would like to be a [biophysicist]{"entity": "interests", "value": "stem"} what extracurriculars do you recommend
+    - in order to become a [chemist]{"entity": "interests", "value": "stem"} what extracurriculars should I do
+    - i would really like to become a [conservation scientist]{"entity": "interests", "value": "stem"} what activities would be helpful
+    - in order to become an [anthropologist]{"entity": "interests", "value": "stem"} what activities do you recommend I do 
+    - i really would like to be a [data scientist]{"entity": "interests", "value": "stem"} what extracurriculars do you recommend I do 
+    - I want to be an [economist]{"entity": "interests", "value": "stem"} what extracurriculars should I do
+    - to be a [geneticist]{"entity": "interests", "value": "stem"} what activities should I do 
+    - i would like to become a [scientist]{"entity": "interests", "value": "stem"} what extracurriculars do you recommend
+    - in order to be a [mathematician]{"entity": "interests", "value": "stem"} what activities do you think would be useful for me to do 
+    - i am very interested in becoming a [microbiologist]{"entity": "interests", "value": "stem"} do you have any recommendations for activities to do 
+    - i am very excited about [molecular biology]{"entity": "interests", "value": "stem"} what activities would you recommend that I do 
+    - i believe i want to be a [molecular biologist]{"entity": "interests", "value": "stem"} what extracurriculars should I do 
+    - I think i am interested in [cellular biology]{"entity": "interests", "value": "stem"} what activities do I do 
+    - i really would like to be a [cellular biologist]{"entity": "interests", "value": "stem"} what extracurriculars do you recommend I do 
+    - if I want to be a [physicist]{"entity": "interests", "value": "stem"} what helpful extracurrculars should I do
+    - i am very interested in becoming a [sociologist]{"entity": "interests", "value": "stem"} what activities do you think I should do 
+    - i would like to become a [mechanic]{"entity": "interests", "value": "transportation_distribution_and_logistics"} what activities do you think I should do
+    - i would love to become a [pilot]{"entity": "interests", "value": "transportation_distribution_and_logistics"} what extracurriculars do you recommend I do 
+    - to become a [logistician]{"entity": "interests", "value": "transportation_distribution_and_logistics"} what useful activities do you think I should do
+    - i think i want to be a [logistics analyst]{"entity": "interests", "value": "transportation_distribution_and_logistics"} what extracurriculars do you think would be helpful for me to do 
+    - i am interested in becoming a [logistics engineer]{"entity": "interests", "value": "transportation_distribution_and_logistics"} what extracurriculars should I do 
+    - i would like to be a [air traffic controller]{"entity": "interests", "value": "transportation_distribution_and_logistics"} what activities should I do 
+    - i would like to be a [airfield operations specialist]{"entity": "interests", "value": "transportation_distribution_and_logistics"} what extracurriculars should I do
+- intent: financial_aid
+  examples: |
+    - How [do I apply]{"entity": "question", "value": "apply"} for [financial aid]{"entity": "money", "value": "financial"}
+    - what [financial aid]{"entity": "money", "value": "financial"} applications [do I fill out]{"entity": "question", "value": "apply"}
+    - What [materials](question) should my parents gather to apply for [financial aid]{"entity": "money", "value": "financial"}
+    - Does our school offer any [workshops](question) for filling out [financial aid]{"entity": "money", "value": "financial"} applications
+    - [Where]{"entity": "question", "value": "location"} can I [find scholarships]{"entity": "money", "value": "find_schol"}
+    - [Where]{"entity": "question", "value": "location"} do I apply for [financial aid]{"entity": "money", "value": "financial"}
+    - Are there any [scholarships]{"entity": "money", "value": "schol"} that our [school or community offers]{"entity": "question", "value": "local_schol"} that you suggest I consider
+    - What are the [deadlines]{"entity": "question", "value": "date"} for [financial aid]{"entity": "money", "value": "financial"} in our state
+    - What [should I know]{"entity": "question", "value": "general"} about [student loans]{"entity": "money", "value": "loans"}
+    - [what are]{"entity": "question", "value": "general"} [parent plus loans](money)
+    - How do I [find scholarships]{"entity": "money", "value": "find_schol"}
+    - how [can I apply]{"entity": "question", "value": "apply"} for [financial aid]{"entity": "money", "value": "financial"}
+    - [what is the process to apply]{"entity": "question", "value": "apply"} for [financial aid]{"entity": "money", "value": "financial"}
+    - [what is]{"entity": "question", "value": "general"} a [parent plus loan]{"entity": "money", "value": "parent plus loans"}
+    - If i need [financial aid]{"entity": "money", "value": "financial"} how [do I apply]{"entity": "question", "value": "apply"}
+    - what [material]{"entity": "question", "value": "materials"} do I need to apply for [financial aid]{"entity": "money", "value": "financial"}
+    - Are there any [workshops](question) available to help with filling out [financial aid]{"entity": "money", "value": "financial"}
+    - Is there a [workshop]{"entity": "question", "value": "workshops"} available to help with filling out [financial aid]{"entity": "money", "value": "financial"} documents
+    - how do i [find scholarship]{"entity": "money", "value": "find_schol"}
+    - Are there any [scholarships]{"entity": "money", "value": "schol"} that our [school offers]{"entity": "question", "value": "local_schol"}
+    - Are there any [scholarships]{"entity": "money", "value": "schol"} that our [community offers]{"entity": "question", "value": "local_schol"}
+    - Are there any [scholarships]{"entity": "money", "value": "schol"} that our [school gives]{"entity": "question", "value": "local_schol"}
+    - Are there any [scholarships]{"entity": "money", "value": "schol"} that our [community gives]{"entity": "question", "value": "local_schol"}
+    - Are there any [scholarships]{"entity": "money", "value": "schol"} that [available at school]{"entity": "question", "value": "local_schol"}
+    - Are there any [scholarships]{"entity": "money", "value": "schol"} that our [available in the community]{"entity": "question", "value": "local_schol"}
+    - [What is the deadline]{"entity": "question", "value": "date"} for [financial aid]{"entity": "money", "value": "financial"}
+    - [what is]{"entity": "question", "value": "general"} the [FAFSA](money)
+    - [what is]{"entity": "question", "value": "general"} the free application for federal student aid]{"entity": "money", "value":"FAFSA"}
+    - [what is]{"entity": "question", "value": "general"} the [texas application for state financial aid]{"entity": "money", "value": "TASFA"}
+    - Do i [have to]{"entity": "question", "value": "required"} fill out the [TASFA](money)
+    - Do i [have to]{"entity": "question", "value": "required"} fill out the [texas application for state financial aid]{"entity": "money", "value": "TASFA"}
+    - Do I [have to]{"entity": "question", "value": "required"} fill out the [FAFSA](money)
+    - Do I [have to]{"entity": "question", "value": "required"} fill out the [free application for federal student aid]{"entity": "money", "value": "FAFSA"}
+    - Do I [have to]{"entity": "question", "value": "required"} fill out the [TASFA and the FAFSA]{"entity": "money", "value": "TASFA or FAFSA"}
+    - Do I [have to]{"entity": "question", "value": "required"} fill out the [FAFSA and the TASFA]{"entity": "money", "value": "TASFA or FAFSA"}
+    - Do I [have to]{"entity": "question", "value": "required"} fill out the [tasfa and fafsa]{"entity": "money", "value": "TASFA or FAFSA"}
+    - Do I [have to]{"entity": "question", "value": "required"} fill out the [fasfa or tasfa]{"entity": "money", "value": "TASFA or FAFSA"}
+    - is it [required](question) fill out the [TASFA](money)
+    - is it [required](question) fill out the [texas application for state financial aid]{"entity": "money", "value": "TASFA"}
+    - is it [required](question) fill out the [FAFSA](money)
+    - is it [required](question) fill out the [free application for federal student aid]{"entity": "money", "value": "FAFSA"}
+    - is it [required](question) fill out the [TASFA and the FAFSA]{"entity": "money", "value": "TASFA or FAFSA"}
+    - is it [required](question) fill out the [FAFSA and the TASFA]{"entity": "money", "value": "TASFA or FAFSA"}
+    - is it [required](question) fill out the [tasfa and fafsa]{"entity": "money", "value": "TASFA or FAFSA"}
+    - is it [required](question) fill out the [fasfa or tasfa]{"entity": "money", "value": "TASFA or FAFSA"}
+    - [should I fill]{"entity": "question", "value": "required"} out the [TASFA](money)
+    - [should I fill]{"entity": "question", "value": "required"} out the [texas application for state financial aid]{"entity": "money", "value": "TASFA"}
+    - [should i apply]{"entity": "question", "value": "required"} to the [FAFSA](money)
+    - [should i apply]{"entity": "question", "value": "required"} to the [free application for federal student aid]{"entity": "money", "value": "FAFSA"}
+    - [When is the deadline]{"entity": "question", "value": "date"} for [financial aid]{"entity": "money", "value": "financial"} in our state
+    - [what is]{"entity": "question", "value": "general"} the [TAFSA]{"entity": "money", "value": "TASFA"}
+    - [when is]{"entity": "question", "value": "date"} the [TASFA](money)
+- synonym: PSAT
+  examples: |
+    - psat
+- synonym: SAT
+  examples: |
+    - sat
+- synonym: ACT
+  examples: |
+    - act
+- synonym: TASFA
+  examples: |
+    - tasfa
+    - texas application for state financial aid
+    - tafsa
+- synonym: FAFSA
+  examples: |
+    - fafsa
+    - free application for federal student aid
+    - fasfa
+- synonym: SAT or ACT
+  examples: |
+    - sat or act
+    - act or sat
+    - ACT or SAT
+    - sat and act
+    - act and sat
+    - ACT and SAT
+    - ACT and the SAT
+    - SAT and the ACT
+    - SAT and ACT
+    - ACT or the SAT
+    - SAT or the act
+- synonym: TASFA or FAFSA
+  examples: |
+    - TASFA and the FAFSA
+    - FAFSA and the TASFA
+    - tasfa and the fafsa
+    - fasfa and the tasfa
+    - TASFA or FAFSA
+    - FAFSA or TASFA
+    - tasfa or the fafsa
+    - FAFSA or the TASFA
+    - tasfa and fafsa
+    - fasfa or tasfa
+- synonym: NMSQT
+  examples: |
+    - nmsqt
+    - national merit scholar qualifying test
+    - National Merit Scholar Qualifying Test
+- synonym: agriculture_food_and_natural_resources
+  examples: |
+    - farm labor contractor
+    - farmer
+    - animal scientist
+    - animal breeder
+    - environmental engineer
+    - environmental engineering
+    - environmental scientist
+    - hazardous material removal worker
+    - agricultural technician
+    - food scientist
+    - forest and conservation worker
+    - biological techinician
+    - soil and plant scientist
+    - agricultural engineer
+    - agricultural engineering
+- synonym: architecture_and_construction
+  examples: |
+    - architect
+    - civil engineer
+    - civil engineering
+    - interior designer
+    - interior designing
+    - surveyor
+    - transportation engineer
+    - transportation engineering
+- synonym: arts_audio_video_technology_and_communications
+  examples: |
+    - audio and video technician
+    - film editor
+    - film editing
+    - video editing
+    - photography
+    - writer
+    - writing
+    - author
+    - director
+    - directing
+    - english
+    - artist
+- synonym: business_management_and_administration
+  examples: |
+    - chief executive
+    - CEO
+    - business executive
+    - general manager
+    - investment fund manager
+    - hedge fund manager
+- synonym: education_and_training
+  examples: |
+    - teacher
+    - professor
+    - translator
+    - interpreter
+    - librarian
+    - instructor
+- synonym: human_services
+  examples: |
+    - guidance counselor
+    - guidance counseling
+    - psychologist
+    - clinical psychologist
+    - psychology
+    - counseling psychologist
+    - social worker
+    - social work
+    - therapist
+    - therapy
+    - counsleor
+    - neuropsychologist
+    - neuropsychology
+- synonym: finance
+  examples: |
+    - accountant
+    - accounting
+    - financial and investment analyst
+    - financial manager
+    - financial managing
+    - financial management
+    - insurance sales agent
+    - personal financial advisor
+    - personal finance adivising
+    - financial advising
+- synonym: government_and_public_administration
+  examples: |
+    - legislator
+    - urban planner
+    - regional planner
+    - politician
+    - governor
+    - senator
+    - congressman
+    - construction inspector
+    - real estate appraiser
+- synonym: health_science
+  examples: |
+    - doctor
+    - biomedical engineer
+    - biomedical engineering
+    - medical researcher
+    - biomedical researcher
+    - epidemiologist
+    - medical laboratory technician
+    - clinical laboratory techinician
+    - MRI technician
+    - Medical Resonance Imaging technologist
+    - Medical Resonance Imaging technician
+    - MRI technologist
+    - surgical assistant
+    - veterinarian
+    - vet
+    - veterinary techinician
+    - cardiologist
+    - cardiology
+    - surgeon
+    - surgery
+    - gastroenterologist
+    - gastroenterology
+    - pediatrician
+    - pediatrics
+    - dermatologist
+    - dermatology
+    - medicine
+    - premedicine
+    - pre-medicine
+    - premed
+    - physician assistant
+    - PA
+    - pathologist
+    - pathology
+    - biology
+    - biologist
+    - biochemistry
+    - biochemist
+    - opthalmologist
+    - opthalmology
+    - radiologist
+    - radiology
+    - family medicine
+    - family doctor
+    - anesthesiologist
+    - anesthesiology
+    - emergency care physician
+    - neurologist
+    - neurology
+    - nephralogist
+    - sports medicine
+    - urologist
+    - urology
+    - psychiatrist
+    - psychiatry
+    - nurse
+    - nursing
+    - pharmacist
+- synonym: information_technology
+  examples: |
+    - business intelligence analysts
+    - business
+    - computer systems engineer
+    - database architect
+    - software quality assurance analyst and tester
+    - video game designer
+    - videogame designer
+    - web designer
+    - web and digital interface designer
+    - computer programmer
+    - computer systems analyst
+    - software developer
+    - software engineer
+    - computer science
+    - computer scientist
+    - web developer
+- synonym: law_public_safety_corrections_and_security
+  examples: |
+    - fire inspector
+    - fire investigator
+    - lawyer
+    - judge
+    - law clerk
+    - law
+    - pre-law
+    - prelaw
+    - judicial law clerk
+    - baliff
+- synonym: manufacturing
+  examples: |
+    - repairer
+    - machinery
+    - wind turbine service technician
+    - engineering technologist
+    - nuclear technician
+    - photonics technician
+    - robotics technician
+    - operator
+- synonym: marketing
+  examples: |
+    - sales
+    - public relations specialist
+    - advertising manager
+    - promotions manager
+    - advertising and promotions manager
+    - marketing manager
+    - public relations manager
+    - sales manager
+    - market research analyst
+    - marketing specialist
+    - real estate broker
+    - real estate agent
+- synonym: stem
+  examples: |
+    - engineer
+    - engineering
+    - aerospace engineer
+    - chemical engineer
+    - electrical engineer
+    - mechanical engineer
+    - astronomer
+    - atmospheric scientist
+    - space scientist
+    - atmospheric and space scientist
+    - biochemist
+    - biophysicist
+    - chemist
+    - conservation scientist
+    - anthropologist
+    - data scientist
+    - economist
+    - geneticist
+    - scientist
+    - mathematician
+    - microbiologist
+    - molecular biology
+    - molecular biologist
+    - cellular biology
+    - cellular biologist
+    - physicist
+    - sociologist
+- synonym: transportation_distribution_and_logistics
+  examples: |
+    - mechanic
+    - pilot
+    - logistician
+    - logistics analyst
+    - logistics engineer
+    - air traffic controller
+    - airfield operations specialist
+- synonym: timeframe
+  examples: |
+    - should I take
+    - when should I take
+    - when should take
+    - to take
+    - when is it best to take
+    - Do I take
+    - how many times
+    - maximum amount of times
+    - how many times should I take
+    - How many times should i take
+    - often should I take
+- synonym: date
+  examples: |
+    - when is
+    - when
+    - when is it
+    - deadlines
+    - What is the deadline
+    - When is the deadline
+- synonym: location
+  examples: |
+    - where
+    - at school
+    - held
+    - often does
+    - often is
+    - Where
+- synonym: study
+  examples: |
+    - prepare
+    - review
+    - improve
+- synonym: bring
+  examples: |
+    - supplies
+    - should I take to
+    - do I take to
+    - do I bring to the testing center
+    - should I take to the testing center
+    - do I take to the testing center
+- synonym: required
+  examples: |
+    - have to
+    - should I fill
+    - should i apply
+- synonym: general
+  examples: |
+    - what is
+    - should I know
+    - what are
+- synonym: apply
+  examples: |
+    - do I apply
+    - do I fill out
+    - can I apply
+    - what is the process to apply
+- synonym: financial
+  examples: |
+    - financial aid
+- synonym: find_schol
+  examples: |
+    - find scholarships
+    - find scholarship
+- synonym: schol
+  examples: |
+    - scholarships
+- synonym: local_schol
+  examples: |
+    - school or community offers
+    - school offers
+    - community offers
+    - school gives
+    - community gives
+    - available at school
+    - available in the community
+- synonym: loans
+  examples: |
+    - student loans
+- synonym: parent plus loans
+  examples: |
+    - parent plus loan
+- synonym: materials
+  examples: |
+    - material
+- synonym: workshops
+  examples: |
+    - workshop

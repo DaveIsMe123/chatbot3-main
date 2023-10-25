@@ -1,0 +1,44 @@
+[
+  {
+    "tag_name": "entity",
+    "ids_to_tags": {
+      "1": "B-interests",
+      "2": "I-interests",
+      "3": "L-interests",
+      "4": "U-interests",
+      "5": "B-money",
+      "6": "I-money",
+      "7": "L-money",
+      "8": "U-money",
+      "9": "B-question",
+      "10": "I-question",
+      "11": "L-question",
+      "12": "U-question",
+      "13": "B-test",
+      "14": "I-test",
+      "15": "L-test",
+      "16": "U-test",
+      "0": "O"
+    },
+    "tags_to_ids": {
+      "B-interests": 1,
+      "I-interests": 2,
+      "L-interests": 3,
+      "U-interests": 4,
+      "B-money": 5,
+      "I-money": 6,
+      "L-money": 7,
+      "U-money": 8,
+      "B-question": 9,
+      "I-question": 10,
+      "L-question": 11,
+      "U-question": 12,
+      "B-test": 13,
+      "I-test": 14,
+      "L-test": 15,
+      "U-test": 16,
+      "O": 0
+    },
+    "num_tags": 17
+  }
+]

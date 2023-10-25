@@ -1,0 +1,673 @@
+version: '3.1'
+
+
+
+intents:
+- request_activities_form
+- summer_activities
+- affirm
+- bot_challenge
+- deny
+- greet
+- goodbye
+- mood_great
+- mood_unhappy
+- bot_challenge
+- email_id
+- user_name
+- financial_aid:
+    ignore_entities:
+    - test
+    - interests
+- goodbye
+- greet
+- interests_activities:
+    ignore_entities:
+    - question
+    - test
+    - money
+- mood_unhappy
+- testing_questions:
+    ignore_entities:
+    - interests
+    - money
+
+entities:
+- test
+- interests
+- question
+- money
+
+slots:
+  name:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: name
+    influence_conversation: true
+  email:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: text
+    influence_conversation: true
+  interest_careers:
+    type: categorical
+    values:
+    - agriculture_food_and_natural_resources
+    - architecture_and_construction
+    - arts_audio_video_technology_and_communications
+    - business_management_and_administration
+    - education_and_training
+    - finance
+    - government_and_public_administration
+    - health_science
+    - hospitatlity_and_tourism
+    - human_services
+    - information_technology
+    - law_public_safety_corrections_and_security
+    - manufacturing
+    - marketing
+    - stem
+    - transportation_distribution_and_logistics
+    influence_conversation: true
+    mappings:
+    - type: from_entity
+      entity: interests
+
+  question_type:
+    type: categorical
+    values:
+    - timeframe
+    - date
+    - location
+    - study
+    - bring
+    - apply
+    - materials
+    - workshops
+    - local_schol
+    - general
+    - what
+    - required
+    - NMSQT
+    mappings:
+    - type: from_entity
+      entity: question
+
+  test_type:
+    type: categorical
+    values:
+    - PSAT
+    - SAT
+    - ACT
+    - SAT or ACT
+    mappings:
+    - type: from_entity
+      entity: test
+      intent: testing_questions
+
+  money_type:
+    type: categorical
+    values:
+    - financial
+    - schol
+    - loans
+    - parent plus loans
+    - find_schol
+    - TASFA
+    - FAFSA
+    - TASFA or FAFSA
+    mappings:
+    - type: from_entity
+      entity: money
+      intent: financial_aid
+      
+forms:
+  activities_form:
+    required_slots:
+      - interest_careers
+      
+responses:
+  utter_askname:
+  - text: Please enter your name.
+
+  utter_askemail:
+  - text: Please enter email id to receive updates.
+
+  utter_greet:
+  - text: Hey! How are you?
+
+  utter_cheer_up:
+  - text: 'Here is something to cheer you up:'
+    image: https://i.imgur.com/nGF1K8f.jpg
+
+  utter_happy:
+  - text: 'cool:'
+    image: https://i.imgur.com/nGF1K8f.jpg
+
+  utter_did_that_help:
+  - text: Did that help you?
+
+  utter_activities_interest:
+  - condition:
+    - type: slot
+      name: interest_careers
+      value: agriculture_food_and_natural_resources
+    text: One thing you can do is particpate in envirothon. Alongside envirothon, getting your hands-on experience at a farm ovevr the summer can come in handy. Finally, courses like Environmental Science can help.
+  - condition:
+    - type: slot
+      name: interest_careers
+      value: architecture_and_construction
+    text: Join a club called TSA (https://tsaweb.org/), or any club similar that provides aomething aligned with your interest. Alongside this, joining organizations, such as the SAIL Team Six, can provide valuable experience. Don't be afraid to go hands-on!
+  - condition:
+    - type: slot
+      name: interest_careers
+      value: arts_audio_video_technology_and_communications
+    text: If you are interested in video production or the like, then clubs like TSA (https://tsaweb.org/) offer competitions in that category. If you are interested in art, you should look into and take Art courses at your high school alongside entering art competitions, like the Congressional Art Challenge. If you want to learn how these work you should look into more STEM-oriented areas.
+  - condition:
+    - type: slot
+      name: interest_careers
+      value: business_management_and_administration
+    text: You can start your own business or non-profit organization! Also, there are clubs like Business Professionals of America that provide competitions in the field and allow you to spurn your mind in this field!
+  - condition:
+    - type: slot
+      name: interest_careers
+      value: education_and_training
+    text: You can become a tutor! Volunteer to join a club like PALs or tutor with an external website/organization alongside some experience in the workforce. The unexpected circumstances in the workforce is similar to how children function, so this can be valuable!
+  - condition:
+    - type: slot
+      name: interest_careers
+      value: finance
+    text: There are competitions relating to this field in Business Professionals of America. Also, courses like Personal Finance may be offered at your school. You can also look into paper trading as a way to dip your toes in the water.
+  - condition:
+    - type: slot
+      name: interest_careers
+      value: government_and_public_administration
+    text: There are plenty of clubs like Model UN and TAMOAS that offer you the opportunity to similar governmental affairs; mock trial allows you to showcase your lawyering skills! Getting an internship at a firm or with a political party can give you some insight into your field.
+  - condition:
+    - type: slot
+      name: interest_careers
+      value: health_science
+    text: If there are clubs like HOSA available at your school, go for it! Otherwise, you can try joining the USA biology olympiad or something related to this field at your school. Look at what people in the field are talking about in BioCord, which is a discord server. Also, you can attend a research program available at your local institution.
+  - condition:
+    - type: slot
+      name: interest_careers
+      value: human_services
+    text: Do math and science
+  - condition:
+    - type: slot
+      name: interest_careers
+      value: information_technology
+    text: Do USACO if you are interested in the aspect of Computers. Otherwise, you can look for internships and research the future of your field on your own.
+  - condition:
+    - type: slot
+      name: interest_careers
+      value: law_public_safety_corrections_and_security
+    text: You can practice by participating in events like Ethics and Professionalism in BPA. Mock trial and Debate allows you to showcase your lawyering skills and argue about real-worl issues! Getting an internship at a firm can give you some insight into your field.
+  - condition:
+    - type: slot
+      name: interest_careers
+      value: manufacturing
+    text: You can obtain a job and receive some hands-on experience with manufacturing by doing DIY projects. You may even invvent something!
+  - condition:
+    - type: slot
+      name: interest_careers
+      value: marketing
+    text: Try being a clerk or door to door salesman as it helps give real-world communication skills. You can also learn up by attending competitions in BPA.
+  - condition:
+    - type: slot
+      name: interest_careers
+      value: transportation_distribution_and_logistics
+    text: You can participate in UIL events such as Math and Science to engage with a variety of these figures used and perhaps even learn how to be a pilot at an internship
+  - condition:
+    - type: slot
+      name: interest_careers
+      value: stem
+    text: You can participate in Math UIL and Science UIL, alongside many other clubs that can be available aat your school such as Science Olympiad and Science Bowl.
+  utter_take_PSAT:
+  - condition:
+    - type: slot
+      name: question_type
+      value: timeframe
+    - type: slot
+      name: test_type
+      value: PSAT
+    text: You should take PSAT in 11th Grade. This is because it will count for NMSQT, which is an award you can otain from this test. You can, however, practice by taking it in 9th or 10th grade.
+  - condition:
+    - type: slot
+      name: question_type
+      value: date
+    - type: slot
+      name: test_type
+      value: PSAT
+    text: In the year 2023, the test will occur on Wednesday, October 11.
+  - condition:
+    - type: slot
+      name: question_type
+      value: location
+    - type: slot
+      name: test_type
+      value: PSAT
+    text: It is taken at an approved PSAT testing center. More often than not, it will occur at your school.
+  - condition:
+    - type: slot
+      name: question_type
+      value: required
+    - type: slot
+      name: test_type
+      value: PSAT
+    text: The PSAT is required in 11th grade in order to assess you academic capability.
+  - condition:
+    - type: slot
+      name: question_type
+      value: NMSQT
+    text: If you get a very high score on the PSAT, which changes every year and by state, you can be entered into NMSQT. This can be insightful in your resume and attract scholarships.
+  - condition:
+    - type: slot
+      name: question_type
+      value: general
+    - type: slot
+      name: test_type
+      value: PSAT
+    text: PSAT is a standardized test in preparation for the SAT. It also is what is used to assess your potential for being a National Merit Scholar.
+  - condition:
+    - type: slot
+      name: question_type
+      value: study
+    text: There are textbooks in the library, and there are also courses online. One website that is officially supported by the test makers is Khan Academy. It is free and has a lot of practice.
+  - condition:
+    - type: slot
+      name: question_type
+      value: bring
+    text: You may only bring a pencil, calculator, and optionally, a watch that doesn't make sounds.
+  - condition:
+    - type: slot
+      name: question_type
+      value: timeframe
+    - type: slot
+      name: test_type
+      value: SAT
+    text: You may take the SAT as much as you want throughout high school. However, it is usually recommended to take until you feel comfortable with your score because taking the test too often can place a financial dent on you.
+  - condition:
+    - type: slot
+      name: question_type
+      value: date
+    - type: slot
+      name: test_type
+      value: SAT
+    text: The SAT occurs on the first Saturday of every month.
+  - condition:
+    - type: slot
+      name: question_type
+      value: location
+    - type: slot
+      name: test_type
+      value: SAT
+    text: You can take SAT anytime at a local testing center, which may include your high school.
+  - condition:
+    - type: slot
+      name: question_type
+      value: required
+    - type: slot
+      name: test_type
+      value: SAT
+    text: In many colleges, the SAT and ACT is not required. However, it is often recommended to take it for colleges that do require it and also to prove your academic proficiency in colleges that don't require it.
+  - condition:
+    - type: slot
+      name: question_type
+      value: general
+    - type: slot
+      name: test_type
+      value: SAT
+    text: SAT is a standardized test used to assess your academic proficiecy beffore entering college.
+  - condition:
+    - type: slot
+      name: question_type
+      value: timeframe
+    - type: slot
+      name: test_type
+      value: ACT
+    text: You may take the ACT as much as you want throughout high school. However, it is usually recommended to take until you feel comfortable with your score because taking the test too often can place a financial dent on you.
+  - condition:
+    - type: slot
+      name: question_type
+      value: date
+    - type: slot
+      name: test_type
+      value: ACT
+    text: The ACT occurs at certain dates that will be stated in their website as follows. https://www.act.org/content/act/en/products-and-services/the-act/registration.html
+  - condition:
+    - type: slot
+      name: question_type
+      value: location
+    - type: slot
+      name: test_type
+      value: ACT
+    text: You can take ACT anytime at a local testing center but also school.
+  - condition:
+    - type: slot
+      name: question_type
+      value: general
+    - type: slot
+      name: test_type
+      value: ACT
+    text: ACT is a standardized test used to assess your academic proficiecy beffore entering college.
+  - condition:
+    - type: slot
+      name: question_type
+      value: required
+    - type: slot
+      name: test_type
+      value: ACT
+    text: In many colleges, the SAT and ACT is not required. However, it is often recommended to take it for colleges that do require it and also to prove your academic proficiency in colleges that don't requrie it.
+  - condition:
+    - type: slot
+      name: question_type
+      value: timeframe
+    - type: slot
+      name: test_type
+      value: SAT or ACT
+    text: You may take the SAT or ACT as much as you want throughout high school. However, it is usually recommended to take until you feel comfortable with your score because taking the test too often can place a financial dent on you.
+  - condition:
+    - type: slot
+      name: question_type
+      value: date
+    - type: slot
+      name: test_type
+      value: SAT or ACT
+    text: ACT April 27 and SAT april 6
+  - condition:
+    - type: slot
+      name: question_type
+      value: location
+    - type: slot
+      name: test_type
+      value: SAT or ACT
+    text: You can take ACT or SAT anytime at a local testing center but also school
+  - condition:
+    - type: slot
+      name: question_type
+      value: required
+    - type: slot
+      name: test_type
+      value: SAT or ACT
+    text: In many colleges, the SAT and ACT is not required. However, it is often recommended to take it for colleges that do require it and also to prove your academic proficiency in colleges that don't requrie it.
+  - condition:
+    - type: slot
+      name: question_type
+      value: general
+    - type: slot
+      name: test_type
+      value: SAT or ACT
+    text: They are standardized tests for academic proficiency used before entering college.
+
+  utter_financial_help:
+  - condition:
+    - type: slot
+      name: question_type
+      value: apply
+    - type: slot
+      name: money_type
+      value: financial
+    text: The FAFSA and TASFA can help assess your financial aid.
+  - condition:
+    - type: slot
+      name: question_type
+      value: materials
+    - type: slot
+      name: money_type
+      value: financial
+    text: I dont know what materials
+  - condition:
+    - type: slot
+      name: question_type
+      value: workshops
+    - type: slot
+      name: money_type
+      value: financial
+    text: I dont know what workshops
+  - condition:
+    - type: slot
+      name: money_type
+      value: find_schol
+    text: You can find scholarships in these websites
+  - condition:
+    - type: slot
+      name: question_type
+      value: location
+    - type: slot
+      name: money_type
+      value: financial
+    text: You apply in fafsa and tasfa at this website. https://studentaid.gov/h/apply-for-aid/fafsa
+  - condition:
+    - type: slot
+      name: money_type
+      value: schol
+    - type: slot
+      name: question_type
+      value: local_schol
+    text: Local scholarschips can include those from UTRGV and EDD.
+  - condition:
+    - type: slot
+      name: question_type
+      value: date
+    - type: slot
+      name: money_type
+      value: financial
+    text: It is due in the Summer.
+  - condition:
+    - type: slot
+      name: question_type
+      value: general
+    - type: slot
+      name: money_type
+      value: loans
+    text: You have to pay it back alongside certain interest rates.
+  - condition:
+    - type: slot
+      name: question_type
+      value: general
+    - type: slot
+      name: money_type
+      value: parent plus loans
+    text: Your parents help you pay off your loans.
+  - condition:
+    - type: slot
+      name: question_type
+      value: general
+    - type: slot
+      name: money_type
+      value: TASFA
+    text: This is similar to the FAFSA and it applies to the State of Texas.
+  - condition:
+    - type: slot
+      name: question_type
+      value: general
+    - type: slot
+      name: money_type
+      value: FAFSA
+    text: This is federal aid provided for students in the college environment.
+  - condition:
+    - type: slot
+      name: question_type
+      value: required
+    - type: slot
+      name: money_type
+      value: TASFA
+    text: You should apply for TAFSA as it may provide some money to ease your burden.
+  - condition:
+    - type: slot
+      name: question_type
+      value: required
+    - type: slot
+      name: money_type
+      value: FAFSA
+    text: You should apply for the FAFSA as it may provide some money to ease your burden,
+  - condition:
+    - type: slot
+      name: question_type
+      value: required
+    - type: slot
+      name: money_type
+      value: TASFA or FAFSA
+    text: You should apply for both as it may ease you burden.
+  - condition:
+    - type: slot
+      name: question_type
+      value: required
+    - type: slot
+      name: money_type
+      value: financial
+    text: You should attempt to apply for financial aid.
+  - condition:
+    - type: slot
+      name: question_type
+      value: date
+    - type: slot
+      name: money_type
+      value: TASFA
+    text: The TASFA deadline is alongside FAFSA at June 30, 2023.
+  - condition:
+    - type: slot
+      name: question_type
+      value: date
+    - type: slot
+      name: money_type
+      value: FAFSA
+    text: FAFSA deadline is June 30, 2023.
+  - condition:
+    - type: slot
+      name: question_type
+      value: date
+    - type: slot
+      name: money_type
+      value: TASFA or FAFSA
+    text: Both of their deadlines are in June 30, 2023.
+  - condition:
+    - type: slot
+      name: question_type
+      value: apply
+    - type: slot
+      name: money_type
+      value: TASFA
+    text: You may apply in your senior year of high school.
+  - condition:
+    - type: slot
+      name: question_type
+      value: apply
+    - type: slot
+      name: money_type
+      value: FAFSA
+    text: You may apply in your senior year of high school.
+  - condition:
+    - type: slot
+      name: question_type
+      value: apply
+    - type: slot
+      name: money_type
+      value: TASFA or FAFSA
+    text: You may apply in your senior year of high school.
+
+  utter_goodbye:
+  - text: Bye
+
+  utter_iamabot:
+  - text: I am a bot, powered by Rasa.
+
+  utter_activities_summer:
+  - condition: 
+      - type: slot
+        name: interest_careers
+        value: agriculture_food_and_natural_resources
+    text: "You can have a hands-on job in the workforce and learn more abut your environment by even gardening,"
+  - condition: 
+      - type: slot
+        name: interest_careers
+        value: architecture_and_construction
+    text: "You may do your own DIY projects, try inventing something, or look for a construction company to intern with."
+  - condition: 
+      - type: slot
+        name: interest_careers
+        value: arts_audio_video_technology_and_communications
+    text: "Try filming your own projects on the side and learn how to edit vids"
+  - condition: 
+      - type: slot
+        name: interest_careers
+        value: business_management_and_administration
+    text: "Start your own business or non-profit organization"
+  - condition: 
+      - type: slot
+        name: interest_careers
+        value: education_and_training
+    text: "Volunteer at the library and perhaps teach kids how to read, do math, or something else along those lines."
+  - condition: 
+      - type: slot
+        name: interest_careers
+        value: finance
+    text: "You can read up and obtain financial literacy at your local library."
+  - condition: 
+      - type: slot
+        name: interest_careers
+        value: government_and_public_administration
+    text: "You can volunteer with a political party"
+  - condition: 
+      - type: slot
+        name: interest_careers
+        value: health_science
+    text: "you can shadow a medical professional or study up on biology."
+  - condition: 
+      - type: slot
+        name: interest_careers
+        value: human_services
+    text: "You can do work as a clerk or along those lines to get valuable experience ealing with people."  
+  - condition: 
+      - type: slot
+        name: interest_careers
+        value: information_technology
+    text: "You can learn cybersecurity and the importance of protecting information."
+ 
+  - condition: 
+      - type: slot
+        name: interest_careers
+        value: law_public_safety_corrections_and_security
+    text: "Become a lawyer" 
+  - condition: 
+      - type: slot
+        name: interest_careers
+        value: manufacturing
+    text: "get a job"      
+  - condition: 
+      - type: slot
+        name: interest_careers
+        value: marketing
+    text: "Become a salesman"  
+  - condition: 
+      - type: slot
+        name: interest_careers
+        value: transportation_distribution_and_logistics
+    text: "Become a pilot"    
+  - condition: 
+      - type: slot
+        name: interest_careers
+        value: stem
+    text: "Do math and physics"
+
+
+
+  utter_ask_interest_careers:
+  - text: "What career are you interested in?"
+
+actions:
+- validate_activities_form
+- utter_activities_interest
+- utter_financial_help
+- utter_take_PSAT
+- action_email
+
+
+
+session_config:
+
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true
